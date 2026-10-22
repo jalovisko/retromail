@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=RetroMail
+GenericName=Mail Client
+Comment=Read and send e-mail like it's 1998
+Exec=retromail
+Icon=retromail
+Terminal=false
+Categories=Network;Email;Qt;
+Keywords=mail;email;imap;gmail;outlook;retro;
+StartupWMClass=retromail

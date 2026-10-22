@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.jalovisko.retromail</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Apache-2.0</project_license>
+  <name>RetroMail</name>
+  <summary>A 1998-style multi-account e-mail client</summary>
+  <description>
+    <p>
+      RetroMail reads and sends e-mail from several accounts (Gmail, Outlook,
+      Yahoo, iCloud, Fastmail or any IMAP server) with the look and feel of a
+      late-90s desktop mail program: a mailbox with a red flag, a phosphor
+      green "YOU HAVE MAIL" and big capital letters.
+    </p>
+  </description>
+  <launchable type="desktop-id">retromail.desktop</launchable>
+  <url type="homepage">https://github.com/jalovisko/retromail</url>
+  <content_rating type="oars-1.1"/>
+</component>
