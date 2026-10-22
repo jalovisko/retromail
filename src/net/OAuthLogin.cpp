@@ -51,13 +51,17 @@ void OAuthLogin::authorize()
         finish(false, tr("No OAuth client ID configured for this provider. See README."));
         return;
     }
-    auto *handler = new QOAuthHttpServerReplyHandler(this);
+    // Some Qt versions start listening in the constructor, others don't, so
+    // only call listen() when needed. Loopback only, random free port.
+    auto *handler = new QOAuthHttpServerReplyHandler(QHostAddress::LocalHost, 0, this);
+    if (!handler->isListening())
+        handler->listen(QHostAddress::LocalHost, 0);
     handler->setCallbackHost(m_config.callbackHost);
     handler->setCallbackText(tr(
         "<html><body style='background:#0a1a3a;color:#d8deea;font-family:Helvetica,Arial;"
         "text-align:center;padding-top:80px'><h1>SIGNED ON.</h1>"
         "<p>You may close this window and return to RetroMail.</p></body></html>"));
-    if (!handler->listen(QHostAddress::LocalHost)) {
+    if (!handler->isListening()) {
         finish(false, tr("Could not open a local port for the sign-in reply"));
         return;
     }
